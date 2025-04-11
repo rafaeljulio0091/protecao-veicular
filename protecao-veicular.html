@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proteção Veicular</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-green-50 text-green-900">
+
+<!-- Navbar moderna com slide dropdown -->
+<header class="w-full flex justify-center bg-gradient-to-b from-green-50 to-white py-4 z-50 relative">
+    <div class="w-[95%] md:w-[90%] lg:w-[80%] bg-white rounded-full shadow-lg px-6 py-2 flex items-center justify-between relative z-50">
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-green-800">Proteção Verde</div>
+  
+      <!-- Botão hamburguer (mobile) -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="focus:outline-none">
+          <svg class="w-6 h-6 text-green-800" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+  
+      <!-- Menu desktop -->
+      <nav class="hidden md:flex md:items-center space-x-6">
+        <a href="#home" class="text-green-600 font-medium">Home</a>
+        <a href="#sobre" class="hover:text-green-600">Sobre</a>
+        <a href="#servicos" class="hover:text-green-600">Serviços</a>
+        <a href="#precos" class="hover:text-green-600">Planos</a>
+        <a href="#parceiros" class="hover:text-green-600">Parceiros</a>
+        <a href="#contato" class="hover:text-green-600">Contato</a>
+      </nav>
+  
+      <!-- Botão de ação desktop -->
+      <a href="#whatsapp" class="hidden md:inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-full">
+        Proteja-se
+      </a>
+    </div>
+  
+    <!-- Menu mobile com slide -->
+    <div id="mobile-menu" class="absolute top-[100%] left-0 w-full bg-white shadow-md overflow-hidden max-h-0 transition-all duration-500 ease-in-out md:hidden z-40">
+      <div class="flex flex-col items-center gap-4 py-4">
+        <a href="#home" class="text-green-600 font-medium">Home</a>
+        <a href="#sobre" class="hover:text-green-600">Sobre</a>
+        <a href="#servicos" class="hover:text-green-600">Serviços</a>
+        <a href="#precos" class="hover:text-green-600">Planos</a>
+        <a href="#parceiros" class="hover:text-green-600">Parceiros</a>
+        <a href="#contato" class="hover:text-green-600">Contato</a>
+        <a href="#whatsapp" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-full">
+          Proteja-se
+        </a>
+      </div>
+    </div>
+  </header>
+<!-- Carousel Banner -->
+<div class="relative overflow-hidden w-full h-[300px] md:h-[500px]">
+  <!-- Slides container -->
+  <div id="carousel-slides" class="flex transition-transform duration-700 ease-in-out w-[300%] h-full">
+    <!-- Slide 1 -->
+    <div class="w-full flex-shrink-0 relative h-full bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1200x500?text=Proteja+seu+carro+hoje!')">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div class="text-white text-center">
+          <h2 class="text-2xl md:text-4xl font-bold">Proteja seu carro hoje mesmo!</h2>
+          <p class="mt-2 text-sm md:text-lg">Planos acessíveis e cobertura total em todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="w-full flex-shrink-0 relative h-full bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1200x500?text=Assistência+24h')">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div class="text-white text-center">
+          <h2 class="text-2xl md:text-4xl font-bold">Assistência 24 horas</h2>
+          <p class="mt-2 text-sm md:text-lg">Fique tranquilo em qualquer situação. Estamos com você!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="w-full flex-shrink-0 relative h-full bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1200x500?text=Proteção+completa')">
+      <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div class="text-white text-center">
+          <h2 class="text-2xl md:text-4xl font-bold">Proteção completa e sem burocracia</h2>
+          <p class="mt-2 text-sm md:text-lg">Cadastre-se em poucos minutos e esteja seguro!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navegação -->
+  <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-green-600 hover:bg-green-700 p-2 rounded-full text-white">
+    ‹
+  </button>
+  <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-green-600 hover:bg-green-700 p-2 rounded-full text-white">
+    ›
+  </button>
+</div>
+  <!-- Sobre Nós -->
+  <section id="sobre" class="py-16 px-4 md:px-16 bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Sobre Nós</h2>
+      <p class="text-lg mb-6">
+        Somos uma associação dedicada à proteção veicular com anos de experiência no mercado.
+      </p>
+      <img src="https://via.placeholder.com/400x250?text=Desenho+Carro" alt="Ilustração carro" class="mx-auto rounded-lg shadow-md">
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="py-16 px-4 md:px-16 bg-green-100">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Nossos Serviços</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <img src="https://via.placeholder.com/150x100?text=Desenho+1" class="mx-auto mb-4" alt="">
+          <h3 class="font-bold mb-2">Proteção Total</h3>
+          <p>Seu veículo coberto contra roubo, furto e colisões.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <img src="https://via.placeholder.com/150x100?text=Desenho+2" class="mx-auto mb-4" alt="">
+          <h3 class="font-bold mb-2">Assistência 24h</h3>
+          <p>Socorro imediato em qualquer situação.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <img src="https://via.placeholder.com/150x100?text=Desenho+3" class="mx-auto mb-4" alt="">
+          <h3 class="font-bold mb-2">Cobertura Personalizada</h3>
+          <p>Planos flexíveis de acordo com sua necessidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parceiros -->
+  <section id="parceiros" class="py-16 px-4 md:px-16 bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Nossos Parceiros</h2>
+      <div class="flex flex-wrap justify-center items-center gap-6">
+        <img src="https://via.placeholder.com/120x60?text=Logo+1" alt="Parceiro 1" class="h-16">
+        <img src="https://via.placeholder.com/120x60?text=Logo+2" alt="Parceiro 2" class="h-16">
+        <img src="https://via.placeholder.com/120x60?text=Logo+3" alt="Parceiro 3" class="h-16">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-16 px-4 md:px-16 bg-green-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Entre em Contato</h2>
+      <p class="mb-4">Preencha o formulário abaixo ou fale direto no WhatsApp!</p>
+      <form class="grid gap-4 max-w-md mx-auto">
+        <input type="text" placeholder="Nome" class="p-3 border rounded-lg" required>
+        <input type="email" placeholder="E-mail" class="p-3 border rounded-lg" required>
+        <textarea placeholder="Mensagem" rows="4" class="p-3 border rounded-lg" required></textarea>
+        <button type="submit" class="bg-green-600 text-white py-3 rounded-lg hover:bg-green-700">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a href="https://wa.me/SEUNUMEROAQUI" target="_blank"
+     class="fixed bottom-4 right-4 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.88 11.88 0 0 0 3.48 20.52l-1.37 4.97 5.06-1.33A11.88 11.88 0 0 0 20.52 3.48zM12 21.54a9.6 9.6 0 0 1-4.88-1.34l-.35-.21-3 .79.8-2.91-.23-.37A9.6 9.6 0 1 1 12 21.54zm5.1-7.5c-.28-.14-1.64-.81-1.9-.9s-.44-.14-.62.14-.72.89-.88 1.07-.32.21-.6.07a7.78 7.78 0 0 1-3.6-3.16c-.27-.47.27-.44.76-1.47.08-.16.04-.3-.02-.42s-.62-1.5-.85-2.06c-.22-.54-.45-.47-.62-.48h-.53a1 1 0 0 0-.7.32 2.88 2.88 0 0 0-.89 2.1 5 5 0 0 0 1 2.54A11 11 0 0 0 16 16.3a1.16 1.16 0 0 0 .82.34 2.89 2.89 0 0 0 1.7-.77c.27-.27.32-.54.24-.76s-.25-.21-.53-.35z"/>
+    </svg>
+  </a>
+<!-- Rodapé -->
+<footer class="bg-green-600 text-white mt-16 pt-10 pb-6 px-4">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+    
+    <!-- Missão -->
+    <div class="md:w-1/3">
+      <h3 class="text-xl font-bold mb-4">Nossa Missão</h3>
+      <p class="mb-4">
+        Na Proteção Veicular Verde, cuidamos do seu bem mais valioso com carinho, responsabilidade e transparência.
+        Estamos aqui para oferecer segurança e tranquilidade em todas as estradas da sua vida.
+      </p>
+      <img src="https://via.placeholder.com/300x180?text=Ilustração+Criativa" alt="Ilustração missão" class="rounded-md shadow-md">
+    </div>
+
+    <!-- Mapa do Site -->
+    <div class="md:w-1/3">
+      <h3 class="text-xl font-bold mb-4">Mapa do Site</h3>
+      <ul class="space-y-2">
+        <li><a href="#sobre" class="hover:underline">Sobre Nós</a></li>
+        <li><a href="#servicos" class="hover:underline">Serviços</a></li>
+        <li><a href="#parceiros" class="hover:underline">Parceiros</a></li>
+        <li><a href="#contato" class="hover:underline">Contato</a></li>
+      </ul>
+    </div>
+
+    <!-- Redes Sociais -->
+    <div class="md:w-1/3">
+      <h3 class="text-xl font-bold mb-4">Redes Sociais</h3>
+      <div class="flex space-x-4">
+        <a href="#" class="hover:text-gray-300" aria-label="Facebook">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.88v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5H15c-1.2 0-1.6.8-1.6 1.5V12h2.8l-.4 3h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+        </a>
+        <a href="#" class="hover:text-gray-300" aria-label="Instagram">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .3 2.4.5.5.2.9.5 1.3.9s.7.8.9 1.3c.2.4.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 2-.5 2.4a3.5 3.5 0 0 1-.9 1.3c-.4.4-.8.7-1.3.9-.4.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.3-2.4-.5a3.5 3.5 0 0 1-1.3-.9 3.5 3.5 0 0 1-.9-1.3c-.2-.4-.4-1.2-.5-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-2 .5-2.4a3.5 3.5 0 0 1 .9-1.3 3.5 3.5 0 0 1 1.3-.9c.4-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.8.1-1 .1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.8-.3 1.8-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1 .2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.8.3 1.8.3 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.8.3-1.8.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1a2.5 2.5 0 0 0-1.1-.7c-.3-.1-.8-.3-1.8-.3-1.3-.1-1.7-.1-4.8-.1zm0 3.8a5.2 5.2 0 1 1 0 10.4A5.2 5.2 0 0 1 12 7.8zm0 8.6a3.4 3.4 0 1 0 0-6.8 3.4 3.4 0 0 0 0 6.8zm5.5-9.6a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        </a>
+        <a href="#" class="hover:text-gray-300" aria-label="LinkedIn">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M4.98 3.5C3.88 3.5 3 4.38 3 5.5S3.88 7.5 4.98 7.5 6.96 6.62 6.96 5.5 6.08 3.5 4.98 3.5zM3.5 8.98h3v12h-3v-12zm7.5 0h2.86v1.64h.04c.4-.75 1.36-1.54 2.8-1.54 2.99 0 3.55 1.97 3.55 4.54v7.36h-3v-6.51c0-1.55-.03-3.55-2.17-3.55-2.18 0-2.51 1.7-2.51 3.43v6.63h-3v-11z"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-8 text-sm text-green-200">
+    © 2025 Proteção Veicular Verde. Todos os direitos reservados.
+  </div>
+</footer>
+
+<!-- Script simples para toggle -->
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  let isOpen = false;
+
+  btn.addEventListener('click', () => {
+    if (isOpen) {
+      menu.style.maxHeight = '0px';
+    } else {
+      menu.style.maxHeight = menu.scrollHeight + 'px';
+    }
+    isOpen = !isOpen;
+  });
+
+  // Script de rotação
+  const slides = document.getElementById('carousel-slides');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+
+  let currentIndex = 0;
+  const totalSlides = 3;
+
+  function updateSlide() {
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  });
+
+  // Auto-play a cada 5s
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlide();
+  }, 5000);
+</script>
+</body>
+</html>
